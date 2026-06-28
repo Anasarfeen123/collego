@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collego — Everything After the Exam</title>
+  <meta name="description" content="Collego is a premium Admissions Planner, College Predictor, and Student Forums platform designed for high-stress post-exam decision making.">
+  
+  <!-- Font Integrations: Space Grotesk (geometric headings) and Outfit / Plus Jakarta Sans (body typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body class="theme-light">
+
+  <!-- ==================== LAYER 1: WORKSPACE ==================== -->
+  <div class="workspace" id="workspaceDesk">
+    
+    <!-- Workspace Grid Background -->
+    <div class="workspace-grid"></div>
+
+    <!-- Workspace Flashlight Glow -->
+    <div class="workspace-flashlight" id="workspaceFlashlight"></div>
+
+    <!-- OS-Style Clock Widget (Top Right Workspace) -->
+    <div class="workspace-widget widget-clock" id="wsClockWidget">
+      <div class="widget-time" id="wsTime">23:25:10</div>
+      <div class="widget-meta">
+        <span class="widget-indicator pulse"></span>
+        <span class="widget-label">JOSAA COUNSELLING MONITOR</span>
+      </div>
+    </div>
+
+    <!-- OS-Style Status Widget (Bottom Left Workspace) -->
+    <div class="workspace-widget widget-quick-stats" id="wsQuickStats">
+      <div class="quick-stat-badge">
+        <span class="dot-amber"></span>
+        <span>Mock Allocation Round 2: Active</span>
+      </div>
+    </div>
+
+    <!-- 1. LEFT NAVIGATION (Workspace Layer) -->
+    <nav class="left-nav" id="leftNav">
+      <div class="nav-logo-container">
+        <!-- SVG Geometric Logo: C constructed out of overlapping rings enclosing graduation cap -->
+        <svg class="collego-logo" viewBox="0 0 100 100" width="48" height="48">
+          <defs>
+            <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9575CD" />
+              <stop offset="100%" stop-color="#7E57C2" />
+            </linearGradient>
+            <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C0CA33" />
+              <stop offset="100%" stop-color="#AEEA00" />
+            </linearGradient>
+            <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFB74D" />
+              <stop offset="100%" stop-color="#FF9800" />
+            </linearGradient>
+          </defs>
+          <!-- C Ring 1 (Back purple arc) -->
+          <path d="M 50 15 A 35 35 0 1 0 85 50" fill="none" stroke="url(#purpleGrad)" stroke-width="12" stroke-linecap="round"/>
+          <!-- C Ring 2 (Front overlapping lime/orange arc) -->
+          <path d="M 85 50 A 35 35 0 0 0 50 15" fill="none" stroke="url(#limeGrad)" stroke-width="12" stroke-linecap="round" stroke-dasharray="80 100"/>
+          <!-- Graduation Cap inside C -->
+          <polygon points="50,38 70,46 50,54 30,46" fill="url(#orangeGrad)" />
+          <line x1="50" y1="54" x2="50" y2="66" stroke="#1C252C" stroke-width="3" stroke-linecap="round" />
+          <polygon points="46,65 54,65 50,70" fill="#1C252C" />
+          <path d="M 37 49 L 37 60 A 13 13 0 0 0 63 60 L 63 49" fill="none" stroke="#1C252C" stroke-width="2.5" />
+        </svg>
+        <span class="logo-text">Collego</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <button class="nav-item active" data-page="landing" aria-label="Landing Page">
+          <span class="icon-wrapper bg-sky">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </span>
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button class="nav-item" data-page="dashboard" aria-label="Dashboard">
+          <span class="icon-wrapper bg-purple">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="9" rx="1"/>
+              <rect x="14" y="3" width="7" height="5" rx="1"/>
+              <rect x="14" y="12" width="7" height="9" rx="1"/>
+              <rect x="3" y="16" width="7" height="5" rx="1"/>
+            </svg>
+          </span>
+          <span class="nav-label">Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-page="predictor" aria-label="College Predictor">
+          <span class="icon-wrapper bg-lime">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m16.2 7.8-2 2"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </span>
+          <span class="nav-label">Predictor</span>
+        </button>
+
+        <button class="nav-item" data-page="forums" aria-label="Student Forums">
+          <span class="icon-wrapper bg-orange">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </span>
+          <span class="nav-label">Forums</span>
+        </button>
+      </div>
+
+      <!-- Bottom Utilities in Nav -->
+      <div class="nav-footer">
+        <!-- Search Trigger Icon -->
+        <button class="nav-footer-btn" id="searchBtn" aria-label="Open Spotlight Search (Cmd + K)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <span class="tooltip">Search (Cmd+K)</span>
+        </button>
+
+        <!-- AI assistant trigger -->
+        <button class="nav-footer-btn" id="aiBtn" aria-label="Toggle AI Counselor Drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+          <span class="tooltip">AI Counselor</span>
+        </button>
+
+        <!-- Notifications panel trigger -->
+        <button class="nav-footer-btn" id="notifBtn" aria-label="Toggle Notification Feed">
+          <div class="notif-badge"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="tooltip">Notifications</span>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button class="nav-footer-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="tooltip">Toggle Theme</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 2. APPLICATION CARD CONTAINER (Layer 2 - Outer boundary padding) -->
+    <main class="app-card-wrapper" id="appCardWrapper">
+      
+      <!-- APPLICATION CARD (The floating sheets of paper) -->
+      <article class="app-card" id="appCard">
+        
+        <!-- Page transition sweep circles -->
+        <div class="page-transition-sweep" id="pageTransitionSweep">
+          <div class="sweep-circle circle-1"></div>
+          <div class="sweep-circle circle-2"></div>
+          <div class="sweep-circle circle-3"></div>
+        </div>
+        
+        <!-- ==================== LANDING PAGE VIEW ==================== -->
+        <section class="page-view active" id="page-landing">
+          
+          <!-- Landing Header -->
+          <header class="landing-header">
+            <div class="landing-logo-title">
+              <span class="landing-pill-logo">Everything After The Exam</span>
+            </div>
+            <div class="landing-nav-shortcuts">
+              <a href="#predictor" class="shortcut-link" onclick="navigateToPage('predictor')">Predictor</a>
+              <a href="#timeline" class="shortcut-link" onclick="navigateToPage('dashboard')">Planner</a>
+              <a href="#forums" class="shortcut-link" onclick="navigateToPage('forums')">Forums</a>
+              <button class="btn-primary" onclick="navigateToPage('dashboard')">
+                <span class="btn-text">Get Started</span>
+              </button>
+            </div>
+          </header>
+
+          <!-- Hero: The Magazine Cover Grid -->
+          <div class="hero-magazine-grid">
+            
+            <!-- Left Column: Title and Search -->
+            <div class="hero-left-col">
+              <h1 class="hero-title">
+                Find the College<br>
+                that fits you.<br>
+                <span class="text-stroke">Not just your rank.</span>
+              </h1>
+              
+              <p class="body-editorial">
+                Collego crunches historical cutoff data, choice-filling trends, and campus profiles to guide you after the exam stress. Run your numbers, talk to advisors, and connect with seniors.
+              </p>
+
+              <!-- Central Search engine capsule -->
+              <div class="search-engine-capsule">
+                <div class="search-input-group" id="heroSearchCapsule">
+                  <svg class="search-capsule-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                  <input type="text" placeholder="Search Engineering Colleges, Programs, Interests..." readonly>
+                </div>
+                <button class="btn-primary capsule-btn" id="heroSearchBtn">
+                  <span class="btn-text">FIND YOUR FIT</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Column: Asymmetric Geometry Frame -->
+            <div class="hero-right-col">
+              <div class="geometry-canvas">
+                <!-- Division lines -->
+                <div class="geo-line horizontal" style="top: 25%;"></div>
+                <div class="geo-line vertical" style="left: 45%;"></div>
+                
+                <!-- Volt Green Circle -->
+                <div class="geo-shape shape-circle bg-lime-accent float-anim" id="heroCircle"></div>
+                
+                <!-- Solar Orange Semicircle -->
+                <div class="geo-shape shape-semicircle bg-orange-accent" id="heroSemicircle"></div>
+                
+                <!-- Lavender Cylinder (created with CSS gradient and rounded corners) -->
+                <div class="geo-shape shape-cylinder bg-purple-gradient shadow-tactile" id="heroCylinder"></div>
+
+                <!-- Text Badge overlapping -->
+                <div class="geo-badge bg-dark-accent rotated-minor">
+                  <span>JOSAA / CSAB 2026 Ready</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Section 1: The Predictor Radar Preview (60/40 Split) -->
+          <section class="landing-section layout-split-60-40" id="section-predictor-promo">
+            <div class="split-col-60">
+              <!-- Live Mockup of Predictor Card -->
+              <div class="radar-mockup-card editorial-card">
+                <div class="mockup-header">
+                  <div class="mockup-college-details">
+                    <h3>BITS Pilani, Goa Campus</h3>
+                    <p>Computer Science & Engineering (CSE)</p>
+                  </div>
+                  <span class="badge badge-success bg-lime">94% MATCH</span>
+                </div>
+                <div class="mockup-range-meter">
+                  <div class="meter-bar-container">
+                    <div class="meter-bar-fill bg-purple" style="width: 72%;"></div>
+                    <div class="meter-indicator" style="left: 60%;">Your Score</div>
+                    <div class="meter-marker start">Opening: 110</div>
+                    <div class="meter-marker end">Closing: 200</div>
+                  </div>
+                </div>
+                <div class="mockup-insight">
+                  <span class="insight-icon">✨</span>
+                  <p><strong>AI Insight:</strong> Based on 2025 rounds, your BITSAT score of 342 sits 30 marks above the mock cutoff, making this a highly stable safety option.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="split-col-40">
+              <span class="section-tag bg-sky">FLAGSHIP TOOL</span>
+              <h2 class="section-title">Predicting without the guesswork.</h2>
+              <p class="body-editorial">
+                We feed ten years of JOSAA counselling rounds, category trends, and cutoffs into our prediction engine. Enter your rank and get realistic, verified admission probabilities.
+              </p>
+              <button class="btn-primary" onclick="navigateToPage('predictor')">
+                <span class="btn-text">Run Your Numbers</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Section 2: Counselling Timeline (Horizontal / Asymmetrical Timeline) -->
+          <section class="landing-section" id="section-timeline">
+            <div class="section-header-centered">
+              <span class="section-tag bg-purple">CRITICAL TIMELINES</span>
+              <h2 class="section-title">The Counselling Road Map</h2>
+              <p class="body-editorial margin-center">
+                Never miss a seat locking deadline or mock allocation result. We track the official updates so you can focus on making choices.
+              </p>
+            </div>
+
+            <div class="timeline-asymmetric-container">
+              <!-- Central Line -->
+              <div class="timeline-spine"></div>
+              
+              <!-- Milestone Card 1 -->
+              <div class="timeline-milestone card-left tilt-1">
+                <div class="editorial-card milestone-card" onclick="toggleTimelineCard(this)">
+                  <div class="milestone-date">JUNE 29, 2026</div>
+                  <h3 class="milestone-title">Seat Allotment Round 1</h3>
+                  <p class="milestone-brief">Official release of first allocation list. Check cutoff bounds immediately against your predicted ranks.</p>
+                  <div class="milestone-unfold-panel">
+                    <p>Round 1 seat distribution begins. If you receive a seat, you must either freeze, slide, or float. Ensure your document files are digitized.</p>
+                    <div class="checklist">
+                      <label><input type="checkbox" checked disabled> Match real Round 1 ranks in Predictor</label>
+                      <label><input type="checkbox" disabled> Select Seat Option (Float/Slide/Freeze)</label>
+                      <label><input type="checkbox" disabled> Complete online document upload</label>
+                    </div>
+                  </div>
+                  <span class="milestone-badge bg-lime-light text-ink">Click to Unfold</span>
+                </div>
+              </div>
+
+              <!-- Milestone Card 2 -->
+              <div class="timeline-milestone card-right tilt-neg-05">
+                <div class="editorial-card milestone-card" onclick="toggleTimelineCard(this)">
+                  <div class="milestone-date">JULY 02, 2026</div>
+                  <h3 class="milestone-title">Document Upload & Freeze</h3>
+                  <p class="milestone-brief">Deadline to verify details and accept allocated seats. Failing to upload triggers immediate exclusion.</p>
+                  <div class="milestone-unfold-panel">
+                    <p>Verification centers will review caste certificates, medical slips, and mark sheets online. Unresolved queries lead to cancellation.</p>
+                    <div class="checklist">
+                      <label><input type="checkbox" disabled> Respond to JOSAA query tickets within 24h</label>
+                      <label><input type="checkbox" disabled> Pay Seat Acceptance fees online</label>
+                    </div>
+                  </div>
+                  <span class="milestone-badge bg-purple-light text-white">Click to Unfold</span>
+                </div>
+              </div>
+
+              <!-- Milestone Card 3 -->
+              <div class="timeline-milestone card-left">
+                <div class="editorial-card milestone-card" onclick="toggleTimelineCard(this)">
+                  <div class="milestone-date">JULY 06, 2026</div>
+                  <h3 class="milestone-title">Seat Allotment Round 2</h3>
+                  <p class="milestone-brief">Waitlist shifts begin. Recommended time to activate your choice-reordering assistant.</p>
+                  <div class="milestone-unfold-panel">
+                    <p>Waitlist allocations are computed. Perfect time to talk to our AI Counselor about whether to float your choice list further.</p>
+                    <div class="checklist">
+                      <label><input type="checkbox" disabled> Re-calculate odds in Admissions Radar</label>
+                      <label><input type="checkbox" disabled> Review waitlist shift stats</label>
+                    </div>
+                  </div>
+                  <span class="milestone-badge bg-orange-light text-ink">Click to Unfold</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 3: Discussion Streams (Masonry Feed) -->
+          <section class="landing-section" id="section-forums">
+            <div class="section-header-centered">
+              <span class="section-tag bg-orange">STUDENT DISCUSSIONS</span>
+              <h2 class="section-title">Learn from the seniors who made it.</h2>
+              <p class="body-editorial margin-center">
+                Forums should not look like boring emails. Explore conversation cards sorted by relevance and upvoted by the student community.
+              </p>
+            </div>
+
+            <div class="forums-masonry-grid">
+              
+              <!-- Forum Card 1 -->
+              <div class="forum-masonry-card editorial-card" onclick="navigateToPage('forums')">
+                <div class="forum-card-tags">
+                  <span class="tag-pill bg-orange-accent">#BITS-Goa</span>
+                  <span class="tag-pill bg-sky-accent">#CSE</span>
+                </div>
+                <h3 class="forum-card-question">Is it worth leaving BITS Pilani CSE (Goa) for IIT Roorkee Mechanical if I want to switch to tech?</h3>
+                <p class="forum-card-summary">My rank is 4500. I love coding but my parents are pushing for the "IIT tag". Looking for honest opinions from people in core branches...</p>
+                <div class="forum-card-footer">
+                  <div class="user-meta">
+                    <div class="user-avatar-mini bg-purple-accent">A</div>
+                    <span>Aditya R.</span>
+                  </div>
+                  <div class="upvote-counter-button" onclick="event.stopPropagation(); handleUpvote(this, 142)">
+                    <span class="upvote-icon">▲</span>
+                    <span class="upvote-count">142</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Forum Card 2 -->
+              <div class="forum-masonry-card editorial-card" onclick="navigateToPage('forums')">
+                <div class="forum-card-tags">
+                  <span class="tag-pill bg-purple-accent">#Counselling</span>
+                  <span class="tag-pill bg-lime-accent">#JOSAA</span>
+                </div>
+                <h3 class="forum-card-question">Mistakes to avoid in JOSAA Choice Filling List!</h3>
+                <p class="forum-card-summary">Last year I saw people with 10k ranks filling BITS CS in lower priority than standard state colleges. Here is my comprehensive guide to arranging choices...</p>
+                <div class="forum-card-footer">
+                  <div class="user-meta">
+                    <div class="user-avatar-mini bg-lime-accent">P</div>
+                    <span>Prisha S.</span>
+                  </div>
+                  <div class="upvote-counter-button" onclick="event.stopPropagation(); handleUpvote(this, 305)">
+                    <span class="upvote-icon">▲</span>
+                    <span class="upvote-count">305</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Forum Card 3 -->
+              <div class="forum-masonry-card editorial-card" onclick="navigateToPage('forums')">
+                <div class="forum-card-tags">
+                  <span class="tag-pill bg-sky-accent">#IIT-Bombay</span>
+                </div>
+                <h3 class="forum-card-question">Hostel life, mess reviews, and computing labs in IIT-B: Ask Me Anything</h3>
+                <p class="forum-card-summary">Fourth-year CSE student here. Happy to answer any questions regarding campus infrastructure, course workloads, or placement statistics.</p>
+                <div class="forum-card-footer">
+                  <div class="user-meta">
+                    <div class="user-avatar-mini bg-orange-accent">R</div>
+                    <span>Rohan K.</span>
+                  </div>
+                  <div class="upvote-counter-button" onclick="event.stopPropagation(); handleUpvote(this, 88)">
+                    <span class="upvote-icon">▲</span>
+                    <span class="upvote-count">88</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Footer of Landing Page -->
+          <footer class="landing-footer-sec">
+            <div class="footer-brand">
+              <span class="logo-text">Collego</span>
+              <p>Everything after the exam.</p>
+            </div>
+            <div class="footer-links">
+              <span>Made for students, by seniors.</span>
+            </div>
+          </footer>
+
+        </section>
+
+
+        <!-- ==================== DASHBOARD VIEW ==================== -->
+        <section class="page-view" id="page-dashboard">
+          <div class="dashboard-header">
+            <div class="dashboard-user">
+              <h1>Welcome back, Rohan!</h1>
+              <p>JEE Advanced Rank: <strong class="text-purple">#142</strong> | Category: <strong>General</strong></p>
+            </div>
+            <div class="dashboard-quick-actions">
+              <button class="btn-primary" onclick="navigateToPage('predictor')">
+                <span class="btn-text">New Prediction</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dashboard Row 1: Summary Cards -->
+          <div class="dashboard-grid-row">
+            
+            <!-- Predictor Summary Card -->
+            <div class="editorial-card dashboard-card bg-white">
+              <div class="dashboard-card-header">
+                <h3 class="text-lime-contrast">Predictor Summary</h3>
+                <span class="indicator bg-lime"></span>
+              </div>
+              <div class="dashboard-list">
+                <div class="list-item" onclick="viewCollegeDetails('iit-bombay')">
+                  <div class="item-name">
+                    <strong>IIT Bombay</strong>
+                    <span>Computer Science & Eng.</span>
+                  </div>
+                  <span class="item-badge bg-lime">94% Match</span>
+                </div>
+                <div class="list-item" onclick="viewCollegeDetails('bits-pilani')">
+                  <div class="item-name">
+                    <strong>BITS Pilani</strong>
+                    <span>Electrical & Electronics</span>
+                  </div>
+                  <span class="item-badge bg-lime">88% Match</span>
+                </div>
+                <div class="list-item" onclick="viewCollegeDetails('iit-delhi')">
+                  <div class="item-name">
+                    <strong>IIT Delhi</strong>
+                    <span>Mathematics & Computing</span>
+                  </div>
+                  <span class="item-badge bg-orange">75% Match</span>
+                </div>
+              </div>
+              <button class="card-action-link" onclick="navigateToPage('predictor')">View All Matches &rarr;</button>
+            </div>
+
+            <!-- Milestone Card -->
+            <div class="editorial-card dashboard-card bg-white">
+              <div class="dashboard-card-header">
+                <h3>Counseling Milestones</h3>
+                <span class="indicator bg-purple"></span>
+              </div>
+              <div class="milestone-timeline-mini">
+                <div class="mini-milestone active">
+                  <div class="milestone-bullet"></div>
+                  <div class="milestone-desc">
+                    <strong>Choice Filling Opens</strong>
+                    <span>Ongoing - Closes in 2 days</span>
+                  </div>
+                </div>
+                <div class="mini-milestone upcoming">
+                  <div class="milestone-bullet"></div>
+                  <div class="milestone-desc">
+                    <strong>Mock Seat Allotment 2</strong>
+                    <span>June 30, 2026</span>
+                  </div>
+                </div>
+                <div class="mini-milestone upcoming">
+                  <div class="milestone-bullet"></div>
+                  <div class="milestone-desc">
+                    <strong>First Allotment Announcement</strong>
+                    <span>July 3, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dashboard Row 2: Forum & Resources -->
+          <div class="dashboard-grid-row">
+            
+            <!-- Trending Forum topics -->
+            <div class="editorial-card dashboard-card split-70">
+              <div class="dashboard-card-header">
+                <h3>Trending Forums Activity</h3>
+                <span class="indicator bg-orange"></span>
+              </div>
+              <div class="forum-stream-mini">
+                <div class="forum-mini-item">
+                  <div class="forum-mini-votes">
+                    <span>▲</span>
+                    <span>142</span>
+                  </div>
+                  <div class="forum-mini-content" onclick="navigateToPage('forums')">
+                    <h4>Is BITS Goa CS better than IIT Ropar Electrical?</h4>
+                    <p>Replied by <strong>Varun G.</strong> (BITS Senior) 10m ago</p>
+                  </div>
+                </div>
+                <div class="forum-mini-item">
+                  <div class="forum-mini-votes">
+                    <span>▲</span>
+                    <span>94</span>
+                  </div>
+                  <div class="forum-mini-content" onclick="navigateToPage('forums')">
+                    <h4>Detailed Choice Re-ordering Sheet for JEE Advanced &lt; 500 ranks</h4>
+                    <p>Replied by <strong>Neha T.</strong> (Counselling Mentor) 1h ago</p>
+                  </div>
+                </div>
+              </div>
+              <button class="card-action-link" onclick="navigateToPage('forums')">Go to Discussion Forums &rarr;</button>
+            </div>
+
+            <!-- Official Notification Alert Corner -->
+            <div class="editorial-card dashboard-card bg-alert-sage split-30">
+              <div class="dashboard-card-header">
+                <h3>Alert Corner</h3>
+                <span class="indicator bg-sky"></span>
+              </div>
+              <p class="alert-message">
+                ⚠️ <strong>JOSAA Update:</strong> Choice locking is now active. Verify the list before locking. Locked choices cannot be altered!
+              </p>
+              <div class="quick-link-box">
+                <a href="https://josaa.nic.in" target="_blank" class="btn-primary small-btn"><span class="btn-text">JOSAA Official Portal</span></a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==================== PREDICTOR VIEW (FLAGSHIP FEATURE) ==================== -->
+        <section class="page-view" id="page-predictor">
+          <div class="page-title-section">
+            <span class="section-tag bg-lime">Interactive Tool</span>
+            <h1 class="page-title">College Match Predictor</h1>
+            <p class="page-subtitle">Input your rankings and filters to calculate real-time admission probabilities based on historical counselling data.</p>
+          </div>
+
+          <!-- Predictor Interactive Panel -->
+          <div class="editorial-card predictor-inputs-card">
+            <form id="predictorForm" class="predictor-form-grid" onsubmit="event.preventDefault(); runPrediction();">
+              
+              <!-- Input: Rank -->
+              <div class="input-block">
+                <label for="studentRank">Your Rank / Score</label>
+                <div class="custom-input-wrapper">
+                  <input type="number" id="studentRank" value="142" min="1" max="100000" required>
+                  <span class="input-suffix">JEE Advanced</span>
+                </div>
+              </div>
+
+              <!-- Input: Category -->
+              <div class="input-block">
+                <label for="studentCategory">Counselling Category</label>
+                <select id="studentCategory">
+                  <option value="General" selected>General (Open)</option>
+                  <option value="OBC-NCL">OBC-NCL</option>
+                  <option value="SC">Scheduled Caste (SC)</option>
+                  <option value="ST">Scheduled Tribe (ST)</option>
+                  <option value="EWS">EWS</option>
+                </select>
+              </div>
+
+              <!-- Input: Preferred Branch -->
+              <div class="input-block">
+                <label for="preferredBranch">Preferred Specialization</label>
+                <select id="preferredBranch">
+                  <option value="ALL">All Specializations</option>
+                  <option value="CSE" selected>Computer Science & Engineering (CSE)</option>
+                  <option value="ECE">Electronics & Communication (ECE)</option>
+                  <option value="EE">Electrical Engineering (EE)</option>
+                  <option value="ME">Mechanical Engineering (ME)</option>
+                </select>
+              </div>
+
+              <!-- Action button -->
+              <div class="input-block action-block">
+                <button type="submit" class="btn-primary w-full-btn" id="runPredictionBtn">
+                  <span class="btn-text">RE-CALCULATE ODDS</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Predictor Dynamic Shape Visualizer -->
+          <div class="predictor-dynamic-visualizer" id="predictorVisualizer">
+            <div class="visualizer-shape-box">
+              <svg id="predictorMorphingSvg" viewBox="0 0 100 100" width="100" height="100">
+                <path id="morphingShapePath" d="M 50,10 A 40,40 0 1,1 49.9,10 Z" fill="var(--color-lime)" stroke="var(--color-ink)" stroke-width="3"></path>
+              </svg>
+              <div class="visualizer-label" id="visualizerShapeLabel">High Chance Match</div>
+            </div>
+            <div class="visualizer-info-text">
+              <h3>Probability Geometry</h3>
+              <p id="visualizerDescription">Your JEE Advanced score maps to a stable, low-entropy circular equilibrium. Excellent margin of safety.</p>
+            </div>
+          </div>
+
+          <!-- Prediction Results Section -->
+          <div class="prediction-results-header">
+            <h2>Your Admission Radar</h2>
+            <div class="result-filters">
+              <button class="filter-pill active" onclick="filterResults('ALL')">All Matches</button>
+              <button class="filter-pill" onclick="filterResults('HIGH')">High Chance (&gt;80%)</button>
+              <button class="filter-pill" onclick="filterResults('MED')">Good Chance (50-80%)</button>
+              <button class="filter-pill" onclick="filterResults('RISKY')">Risky (&lt;50%)</button>
+            </div>
+          </div>
+
+          <!-- Results Cards List -->
+          <div class="predictor-results-list" id="predictorResultsList">
+            <!-- Dynamic Injection from app.js -->
+            <!-- Sample Content will load here -->
+          </div>
+        </section>
+
+
+        <!-- ==================== FORUMS VIEW ==================== -->
+        <section class="page-view" id="page-forums">
+          <div class="forums-header-row">
+            <div>
+              <span class="section-tag bg-orange">COMMUNITY STREAM</span>
+              <h1 class="page-title">Student Forums</h1>
+              <p class="page-subtitle">Browse questions, upvote discussions, and connect with peers and senior advisors.</p>
+            </div>
+            <button class="btn-primary" onclick="openNewDiscussionModal()">
+              <span class="btn-text">Start a Discussion</span>
+            </button>
+          </div>
+
+          <!-- Forum Feed Options -->
+          <div class="forum-filters-bar">
+            <div class="forum-tags-selector">
+              <button class="tag-selector-pill active" onclick="filterForums('ALL')">#AllTopics</button>
+              <button class="tag-selector-pill" onclick="filterForums('JOSAA')">#JOSAA</button>
+              <button class="tag-selector-pill" onclick="filterForums('BITS')">#BITS-Pilani</button>
+              <button class="tag-selector-pill" onclick="filterForums('CSE')">#CSE</button>
+              <button class="tag-selector-pill" onclick="filterForums('PREDICTIONS')">#Predictions</button>
+            </div>
+            <div class="forum-search-box">
+              <input type="text" id="forumSearchInput" placeholder="Search questions..." onkeyup="searchForums()">
+            </div>
+          </div>
+
+          <!-- Forum Grid -->
+          <div class="forums-masonry-grid" id="forumsContainer">
+            <!-- Dynamically Loaded by JS -->
+          </div>
+        </section>
+
+
+        <!-- ==================== COLLEGE DETAILS VIEW ==================== -->
+        <section class="page-view" id="page-college">
+          <div class="back-navigation">
+            <button class="btn-secondary" onclick="goBackToPreviousPage()">
+              <span>&larr; Back to Results</span>
+            </button>
+          </div>
+
+          <div class="college-profile-container" id="collegeProfileDetails">
+            <!-- Inject dynamically -->
+          </div>
+        </section>
+
+
+        <!-- ==================== SETTINGS & PROFILE VIEW ==================== -->
+        <section class="page-view" id="page-settings">
+          <div class="page-title-section">
+            <span class="section-tag bg-purple">PREFERENCES</span>
+            <h1 class="page-title">Account & System Settings</h1>
+          </div>
+
+          <div class="settings-grid">
+            <!-- Left settings category -->
+            <div class="settings-nav">
+              <button class="settings-tab-btn active" onclick="switchSettingsTab('profile')">Personal Profile</button>
+              <button class="settings-tab-btn" onclick="switchSettingsTab('counselling')">Counselling Target</button>
+              <button class="settings-tab-btn" onclick="switchSettingsTab('theme')">Display Theme</button>
+            </div>
+
+            <!-- Right settings details -->
+            <div class="settings-content-pane">
+              
+              <!-- Tab 1: Profile -->
+              <div class="settings-tab-view active" id="settings-tab-profile">
+                <h3>Personal Profile</h3>
+                <div class="profile-avatar-row">
+                  <div class="profile-large-avatar bg-purple-accent">R</div>
+                  <div>
+                    <h4>Rohan K.</h4>
+                    <p>General Category Candidate | JEE Main & Adv Aspirant</p>
+                  </div>
+                </div>
+
+                <div class="settings-form-row">
+                  <div class="form-group-half">
+                    <label>Full Name</label>
+                    <input type="text" value="Rohan K." disabled>
+                  </div>
+                  <div class="form-group-half">
+                    <label>Email Address</label>
+                    <input type="email" value="rohan.k@examfit.in" disabled>
+                  </div>
+                </div>
+                <div class="settings-form-row">
+                  <div class="form-group-half">
+                    <label>Phone Number</label>
+                    <input type="text" value="+91 98765 43210" disabled>
+                  </div>
+                  <div class="form-group-half">
+                    <label>Application ID</label>
+                    <input type="text" value="JEE2026ADV0142" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 2: Counselling Targets -->
+              <div class="settings-tab-view" id="settings-tab-counselling">
+                <h3>Counselling Preferences</h3>
+                <p>Modify targets to tailor your Predictor feeds and Milestone updates.</p>
+                
+                <div class="counselling-pref-checkgroup">
+                  <div class="checkbox-row">
+                    <input type="checkbox" id="prefJosaa" checked disabled>
+                    <label for="prefJosaa"><strong>JOSAA Counselling</strong> (IITs, NITs, IIITs, GFTIs)</label>
+                  </div>
+                  <div class="checkbox-row">
+                    <input type="checkbox" id="prefBits" checked disabled>
+                    <label for="prefBits"><strong>BITS Admissions Counselling</strong> (Pilani, Goa, Hyderabad)</label>
+                  </div>
+                  <div class="checkbox-row">
+                    <input type="checkbox" id="prefJac" disabled>
+                    <label for="prefJac"><strong>JAC Delhi</strong> (DTU, NSUT, IIIT-D)</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 3: Themes -->
+              <div class="settings-tab-view" id="settings-tab-theme">
+                <h3>Display Theme</h3>
+                <p>Choose between light parchment paper aesthetics and deep workspace mode.</p>
+                
+                <div class="theme-select-cards">
+                  <div class="theme-card light active" onclick="setSystemTheme('light')">
+                    <div class="theme-preview bg-white border-dark"></div>
+                    <strong>Parchment White</strong>
+                  </div>
+                  <div class="theme-card dark" onclick="setSystemTheme('dark')">
+                    <div class="theme-preview bg-dark"></div>
+                    <strong>Deep Matte Workspace</strong>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </article>
+
+    </main>
+
+    <!-- ==================== POPUPS / DRAWERS (WORKSPACE LAYER) ==================== -->
+    <div class="workspace-overlay" id="workspaceOverlay"></div>
+
+    <!-- 1. AI COUNSELOR SIDE PANEL (Slides out from underneath the App Card on the right) -->
+    <aside class="workspace-drawer drawer-right" id="aiDrawer">
+      <div class="drawer-header">
+        <div class="drawer-header-title">
+          <span class="drawer-avatar bg-purple-accent">🤖</span>
+          <div>
+            <h3>AI Counselling Assistant</h3>
+            <p class="status-online">Online & Crunched Cutoffs</p>
+          </div>
+        </div>
+        <button class="close-btn" id="closeAiBtn" aria-label="Close panel">&times;</button>
+      </div>
+
+      <!-- Chat Stream -->
+      <div class="drawer-chat-stream" id="chatStream">
+        <div class="chat-message bot">
+          <p>Hi Rohan! I'm your AI Counselling Counselor. I have loaded your details: **Rank #142 (General)**.</p>
+          <p>Your JEE Advanced rank is exceptional. You have excellent odds at premium branches in top-tier IITs. How can I help you arrange your choice lists today?</p>
+        </div>
+        <div class="chat-message user">
+          <p>What are my chances for CSE at IIT Bombay?</p>
+        </div>
+        <div class="chat-message bot">
+          <p>Based on the JOSAA Round 6 closing ranks from the last three years (2023: 138, 2024: 140, 2025: 145), your rank of **142** sits right on the boundary.</p>
+          <p>It is a **94% match probability**. You should definitely put **IIT Bombay CSE** as your Rank 1 Choice, but back it up with **IIT Delhi CSE** (closing rank ~210) as your Rank 2 Choice for safety.</p>
+        </div>
+      </div>
+
+      <!-- Chat input -->
+      <div class="drawer-chat-input-bar">
+        <input type="text" id="chatInput" placeholder="Ask about branch, cutoffs, or choices..." onkeydown="handleChatSubmit(event)">
+        <button class="btn-primary chat-send-btn" onclick="sendChatMessage()">
+          <span>Send</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- 2. COLLEGE QUICK PREVIEW DRAWER (Slides out from underneath the App Card from bottom) -->
+    <aside class="workspace-drawer drawer-bottom" id="collegePreviewDrawer">
+      <div class="drawer-header">
+        <h3>Quick College Preview</h3>
+        <button class="close-btn" id="closePreviewBtn" aria-label="Close panel">&times;</button>
+      </div>
+      <div class="preview-content-box" id="previewContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </aside>
+
+    <!-- 3. SPOTLIGHT COMMAND PALETTE OVERLAY -->
+    <div class="command-palette" id="commandPalette">
+      <div class="command-box">
+        <div class="command-search-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="commandSearchInput" placeholder="Type a college name, exam or page shortcuts..." onkeyup="handleCommandSearch()">
+          <span class="esc-badge">ESC</span>
+        </div>
+        
+        <div class="command-sections">
+          <!-- Navigation Shortcuts -->
+          <div class="command-section">
+            <h4>Quick Actions</h4>
+            <div class="command-results-list">
+              <div class="command-result-item" onclick="selectCommandAction('nav:landing')">
+                <span class="result-icon bg-sky">🏠</span>
+                <span class="result-text">Go to Home Page</span>
+                <span class="shortcut-desc">Jump</span>
+              </div>
+              <div class="command-result-item" onclick="selectCommandAction('nav:predictor')">
+                <span class="result-icon bg-lime">🎯</span>
+                <span class="result-text">Run College Predictor</span>
+                <span class="shortcut-desc">Tool</span>
+              </div>
+              <div class="command-result-item" onclick="selectCommandAction('nav:forums')">
+                <span class="result-icon bg-orange">💬</span>
+                <span class="result-text">Open Student Forums</span>
+                <span class="shortcut-desc">Community</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Matching search results -->
+          <div class="command-section" id="commandSearchResultsSection" style="display:none;">
+            <h4>Colleges Matching Search</h4>
+            <div class="command-results-list" id="commandSearchResultsList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Default Suggestions -->
+          <div class="command-section" id="commandSuggestionsSection">
+            <h4>Suggested Queries</h4>
+            <div class="command-results-list">
+              <div class="command-result-item" onclick="selectCommandSearchQuery('IIT Bombay')">
+                <span class="result-icon">🎓</span>
+                <span class="result-text">IIT Bombay Cutoffs & Ranks</span>
+              </div>
+              <div class="command-result-item" onclick="selectCommandSearchQuery('BITS Pilani')">
+                <span class="result-icon">🎓</span>
+                <span class="result-text">BITS Pilani CS Branch Odds</span>
+              </div>
+              <div class="command-result-item" onclick="selectCommandSearchQuery('Choice filling')">
+                <span class="result-icon">📝</span>
+                <span class="result-text">Official Choice Arranging Rules</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. NOTIFICATION FEED SIDE DRAWER -->
+    <aside class="workspace-drawer drawer-right" id="notificationsDrawer">
+      <div class="drawer-header">
+        <h3>Notifications & Announcements</h3>
+        <button class="close-btn" id="closeNotifBtn" aria-label="Close panel">&times;</button>
+      </div>
+      <div class="drawer-list-container">
+        <div class="notif-feed-item unread">
+          <div class="notif-header">
+            <span class="tag-pill bg-lime-accent">Official</span>
+            <span class="notif-time">2m ago</span>
+          </div>
+          <h4>JOSAA Round 1 Choice Filling Ends Soon</h4>
+          <p>Please lock your choices by tomorrow 5 PM. Unlocked choices will be locked automatically.</p>
+        </div>
+        <div class="notif-feed-item unread">
+          <div class="notif-header">
+            <span class="tag-pill bg-purple-accent">AI Alert</span>
+            <span class="notif-time">1h ago</span>
+          </div>
+          <h4>New cutoff model computed</h4>
+          <p>BITS counseling models have been updated with latest exam count statistics. Your CSE probability is now 94%.</p>
+        </div>
+        <div class="notif-feed-item">
+          <div class="notif-header">
+            <span class="tag-pill bg-orange-accent">Forum Reply</span>
+            <span class="notif-time">1 day ago</span>
+          </div>
+          <h4>Rohan K. replied to your post</h4>
+          <p>"Definitely go for IIT Bombay instead of BITS Goa if you get CSE..."</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 5. FLOATING NOTIFICATION TOAST CONTAINER -->
+    <div class="notification-toast-container" id="toastContainer">
+      <!-- Dynamically generated toasts will render here -->
+    </div>
+
+    <!-- 6. NEW DISCUSSION DIALOG MODAL (Center floating box) -->
+    <div class="modal-dialog-overlay" id="newPostModal">
+      <div class="modal-dialog-box editorial-card">
+        <div class="modal-header">
+          <h3>Start a Community Discussion</h3>
+          <button class="close-btn" onclick="closeNewDiscussionModal()">&times;</button>
+        </div>
+        <form onsubmit="event.preventDefault(); submitNewDiscussion();">
+          <div class="form-group">
+            <label for="postTitle">Topic Title / Question</label>
+            <input type="text" id="postTitle" placeholder="e.g., Is BITS Goa CSE better than IIT Indore Tech?" required>
+          </div>
+          <div class="form-group">
+            <label for="postCategory">Topic Tag</label>
+            <select id="postCategory">
+              <option value="JOSAA">#JOSAA Counselling</option>
+              <option value="BITS">#BITS-Pilani</option>
+              <option value="CSE">#CSE & Tech</option>
+              <option value="PREDICTIONS">#Predictions & Cutoffs</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="postSummary">Details / Background</label>
+            <textarea id="postSummary" rows="4" placeholder="Explain your situation, ranks, interests..." required></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-secondary" onclick="closeNewDiscussionModal()">Cancel</button>
+            <button type="submit" class="btn-primary">Post to Stream</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

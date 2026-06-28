@@ -1,0 +1,14 @@
+{
+  "name": "collego-ui",
+  "version": "1.0.0",
+  "description": "Collego UI with Playful Geometry Architecture",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
